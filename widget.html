@@ -1,0 +1,57 @@
+<html><head><style>.btn{margin:0;padding:0;width:16px;height:16px;}</style></head>
+<body style="margin:0;padding:0;width:80px;height:16px">
+<div id="___floatlink_container" style="margin:0;padding:0;box-sizing:border-box;width:80px;height:16px"><img alt="Previous link" id="___floatlink_prev" class="btn" src="arrow-left.svg" /><img alt="Link list" id="___floatlink_list" class="btn" src="menu.svg" /><img alt="Random link" id="___floatlink_rand" class="btn" src="radio.svg" /><img alt="Ring home" id="___floatlink_home" class="btn" src="bookmark.svg" /><img alt="Next link" id="___floatlink_next" style="margin:0;padding:0;width:16px;height:16px" src="arrow-right.svg" />
+</div>
+<script>
+    var REGEX_COMMENT = /(?:^|\s+)(#.*)/g;
+
+    // edit here.
+    var HOME = 'https://bctnry.github.io/Floatlink';
+    var LINK_LIST = 'https://raw.githubusercontent.com/bctnry/Floatlink/master/link.txt';
+    ////////////////////////////////////////////////////
+
+    var LINK_CONTENT = null;
+    var left = document.getElementById('___floatlink_prev');
+    var list = document.getElementById('___floatlink_list');
+    var rand = document.getElementById('___floatlink_rand');
+    var right = document.getElementById('___floatlink_next');
+    var home = document.getElementById('___floatlink_home');
+    
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", function () {
+        var content = oReq.responseText;
+        LINK_CONTENT = content.replace(REGEX_COMMENT, '\n').split('\n').map(function (v) { return v.trim(); }).filter(function (e) { return e; });
+    });
+    oReq.open("GET", LINK_LIST);
+    oReq.send();
+
+    left.onclick = function (e) {
+        if (LINK_CONTENT) {
+            var i = LINK_CONTENT.findIndex(function (v) { return v === window.top.location.href; });
+            var target = i !== -1? ((i + LINK_CONTENT.length) - 1) % LINK_CONTENT.length : 0;
+            window.top.location.href = (LINK_CONTENT[target]);
+        }
+    }
+    list.onclick = function (e) {
+        window.open(LINK_LIST);
+    }
+    rand.onclick = function (e) {
+        if (LINK_CONTENT) {
+            var i = LINK_CONTENT.findIndex(function (v) { return v === window.top.location.href; });
+            var target = Math.floor(Math.random() * LINK_CONTENT.length);
+            window.top.location.href = (LINK_CONTENT[target]);
+        }
+    }
+    right.onclick = function (e) {
+        if (LINK_CONTENT) {
+            var i = LINK_CONTENT.findIndex(function (v) { return v === window.top.location.href; });
+            var target = i !== -1 ? (i + 1) % LINK_CONTENT.length : 0;
+            window.top.location.href = (LINK_CONTENT[target]);
+        }
+    }
+    home.onclick = function (e) {
+        window.open(HOME);
+    }
+</script>
+</body>
+</html>

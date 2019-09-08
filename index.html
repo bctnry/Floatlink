@@ -5,8 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Floatlink Demo</title>
+    <style>
+        code {
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Floatlink Demo</h1>
+    <hr />
+    <p>
+        This is the demo site for the modern Webring solution <a href="https://github.com/bctnry/Floatlink">Floatlink</a>.
+    </p>
+    <h2>What is a Webring?</h2>
+    <blockquote>
+        A webring (or web ring) is a collection of websites linked together in a circular structure, and usually organized
+        around a specific theme, often educational or social.<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-1">[1]</a></sup>
+        They were popular in the 1990s and early 2000s, particularly
+        among amateur websites. &mdash; <a href="https://en.wikipedia.org/wiki/Webring">Wikipedia</a>
+    </blockquote>
+    <p>
+        Webring was one of the popular ways of discovering new website on a specific topic (and also a popular way to expose your
+        website to more viewers) back in the Web 1.0 days. 
+    </p>
+    <blockquote>
+        Webrings are mainly viewed as a relic of the early web of the 1990s.<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-Hover2015-3">[3]</a></sup>
+        When the primary site that managed web rings,
+        webring.org was acquired by Yahoo, "ring masters" lost access to their webrings<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-Hover2015-3">[3]</a></sup>
+        and the web ring hubs were replaced
+        by a Yahoo page.<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-Hover2015-3">[3]</a></sup>
+        By the time Yahoo stopped controlling webring.org in 2001, search engines had become good enough
+        that web rings were no longer as useful.<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-Hover2015-3">[3]</a></sup>
+        The webring.org site was still active in the mid-2010s.<sup><a href="https://en.wikipedia.org/wiki/Webring#cite_note-Hover2015-3">[3]</a></sup>
+
+        &mdash; <a href="https://en.wikipedia.org/wiki/Webring">Wikipedia</a>
+    </blockquote>
+    <h2>What are the modern usages of Webring?</h2>
+    <p>
+        Besides its original purpose I can only come up with one single idea. Imagine you are writing / have written
+        a series of posts on one single topic ("How to make a blahblahblah"-kind of things, for example), you can use Floatlink to
+        string them together so that it's easier to share, i.e. Floatlink can be served as an index.
+    </p>
+    <h2>What are the risks of using Floatlink?</h2>
+    <p>
+        The original main idea of Floatlink is to "'exploit' GitHub's free public code hosting service", hence the name "Float"
+        because it's based on the single premise "GitHub is an infrastructure of modern WWW and is accesible for everyone" (which
+        is, of course, not the case) and thus it's not "solid" and "down-to-ground"; the only "solid" solution is to host the
+        server yourself (webrings are normally hosted on a central server).
+    </p>
+    <h2>How to join a Floatlink webring?</h2>
+    <p>
+        Ask the webring's ringmaster to add your link to the webring link list, and put the Floatlink widget on your linked page.
+        The widget is normally inserted into the page as an <code>iframe</code>; a typical Floatlink widget installation will be
+        like this:
+        <pre>
+&lt;iframe
+    src="http://my-floatlink-site.com/widget.html"
+    style="margin:0;padding:0;border:0px;width:80px;height:16px"
+    title="Floatlink Navigation"&gt;&lt;/iframe&gt;
+        </pre>For security reasons it's recommended to host
+        your own <code>widget.html</code> rather than using the <code>iframe</code> directly.
+    </p>
+    <h2>What does a Floatlink widget look like?</h2>
+    <p>
+        This is a working example of a default widget:
+        <blockquote>
+            <iframe src="widget.html" style="border:0px;width:80px;height:16px" title="Floatlink Navigation"></iframe>
+        </blockquote>
+        It contains 5 buttons:
+        <ul>
+            <li><img src="arrow-left.svg" style="width:16px;height:16px" /><img src="arrow-right.svg" style="width:16px;height:16px" /> - Navigate between the pages in the webring.</li>
+            <li><img src="radio.svg" style="width:16px;height:16px" /> - Go to a random link in the webring.</li>
+            <li><img src="menu.svg" style="width:16px;height:16px" /> - Display the link list of the webring.</li>
+            <li><img src="bookmark.svg" style="width:16px;height:16px" /> - Display the home page of the webring.</li>
+        </ul>
+    </p>
+    <h2>I host a Floatlink webring, how do I customize the apperance of the widget?</h2>
+    <p>
+        It requires basic HTML/CSS/JS knowledge; there are plenty of related turtorials on the Internet.
+    </p>
+    <h2>Why should Floatlink exist? Or, why should Webrings ever be revived?</h2>
+    <p>
+        The overall motivation of bringing back (pre-)Web 1.0 experience (<a href="https://en.wikipedia.org/wiki/RSS">RSS</a>,
+        <a href="https://en.wikipedia.org/wiki/Usenet_newsgroup">newsgroup</a>, Webrings, and even <a href="https://en.wikipedia.org/wiki/Gopher_(protocol)">Gopher</a>)
+        is that modern WWW has <a href="https://theweek.com/speedreads/863494/house-investigating-why-routine-military-trip-middle-east-stopped-trumps-resort-scotland">failed</a>
+        <a href="https://www.digitaltrends.com/web/ways-to-decentralize-the-web/">its</a>
+        <a href="https://www.wired.com/2017/04/tim-berners-lee-inventor-web-plots-radical-overhaul-creation/">original</a>
+        <a href="https://www.vanityfair.com/news/2018/07/the-man-who-created-the-world-wide-web-has-some-regrets">purpose</a>.
+        To me, it really doesn't need to have a practical purpose - it itself already served its purpose as a statement against the modern WWW since the 2010s,
+        an attempt to re-define the existence of websites and their readers.
+    </p>
+    <h2>Who are you?</h2>
+    <p>I am <a href="https://bctnry.gitlab.io">Sebastian Lin</a>.</p>
+    <hr />
+    Last update: 2019.9.8
+    <iframe src="widget.html" style="border:0px;width:80px;height:16px" title="Floatlink Navigation"></iframe>
 </body>
 </html>

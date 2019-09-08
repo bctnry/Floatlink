@@ -1,2 +1,10 @@
-https://bctnry.github.io
-https://bctnry.gitlab.io
+# everything after a sharp sign "#" preceded by a whitespace character (or
+# preceded by nothing), including the sharp sign itself, is considered to
+# be a *comment*, and will be ignored when the widget is retrieving the
+# links for navigation.
+
+https://bctnry.github.io/Floatlink/index.html
+https://bctnry.github.io/Floatlink/test1.html
+https://bctnry.github.io/Floatlink/test2.html
+https://bctnry.github.io/Floatlink/test3.html
+
